@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<robot name="eva">
+
+ <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+
+
+  <link name="base_link">
+    <visual>
+        <geometry>
+            <sphere radius="0.2"/>
+        </geometry> 
+      <material name="white"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </visual>
+  </link>
+
+  <link name="core_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.6" radius="0.2"/>
+      </geometry>
+      <material name="white"/>
+      <origin rpy="0 0 0" xyz="0 0 -0.3"/>
+    </visual>
+  </link>
+
+  <joint name="propeler_to_core" type="fixed">
+    <parent link="base_link"/>
+    <child link="core_link"/>
+    <origin xyz="0 0 0.6"/>
+  </joint>
+
+
+
+
+ <link name="head_link">
+    <visual>
+      <geometry>
+        <box size="0.2 0.1 0.2"/>
+      </geometry>
+      <material name="white"/>
+      <origin rpy="0 0 0" xyz="0 0 -0.1"/>
+    </visual>
+  </link>
+
+  <joint name="head_to_core" type="revolute">
+    <parent link="core_link"/>
+    <child link="head_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5"/>
+    <origin rpy="0 0 0" xyz="0 0 0.2"/>
+  </joint>
+
+ <link name="eye1_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.2" radius="0.1"/>
+      </geometry>
+      <material name="white"/>
+      <origin rpy="1.57 0 0" xyz="0 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="eye1_to_head" type="fixed">
+    <parent link="head_link"/>
+    <child link="eye1_link"/>
+    <origin xyz="0 0 0"/>
+  </joint>
+
+
+
+
+  <link name="left_arm_link">
+    <visual>
+      <geometry>
+        <box size="0.4 0.2 0.1"/>
+      </geometry>
+      <material name="black"/>
+      <origin rpy="0 0 0" xyz="0.2 0 0.05"/>
+    </visual>
+  </link>
+
+  <joint name="core_to_left_arm" type="revolute">
+    <parent link="core_link"/>
+    <child link="left_arm_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5"/>
+    <origin rpy="0 1.57 0" xyz="0.2 0 0"/>
+  </joint>
+
+
+
+
+  <link name="right_arm_link">
+    <visual>
+      <geometry>
+        <box size="0.4 0.2 0.1"/>
+      </geometry>
+      <material name="black"/>
+      <origin rpy="0 0 0" xyz="0.2 0 -0.05"/>
+    </visual>
+  </link>
+
+  <joint name="core_to_right_arm" type="revolute">
+    <parent link="core_link"/>
+    <child link="right_arm_link"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5"/>
+    <origin rpy="0 1.57 0" xyz="-0.2 0 0"/>
+  </joint>
+
+
+
+
+
+
+
+
+
+
+
+
+</robot>

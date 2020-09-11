@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<<robot name="eva">
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+  <material name="yellow">
+    <color rgba="1 1 0 0"/>
+  </material>
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+
+
+  <link name="head">
+    <visual>
+      <geometry>
+        <sphere radius="0.2"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+  </link>
+
+
+  <link name="core_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.6" radius="0.2"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  
+
+
+
+    
+</robot>
